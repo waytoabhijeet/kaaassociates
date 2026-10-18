@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Leads – KAA Associates Admin</title>
+<style>
+body{margin:0;font:15px/1.5 system-ui,sans-serif;background:#f4f7fb;color:#1c2a39}.w{max-width:1200px;margin:auto;padding:20px}
+h1{color:#0b2545;margin:0}.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:18px 0}.stats div{background:#fff;border-radius:10px;padding:14px;border:1px solid #e3e9f0}.stats b{font-size:26px;color:#0b2545;display:block}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}input,select,textarea,button{font:inherit;padding:8px 10px;border:1px solid #c9d4e0;border-radius:8px;background:#fff}
+button,.b{background:#13a77a;color:#fff;border:0;cursor:pointer;text-decoration:none;padding:9px 14px;border-radius:8px}
+.t{overflow-x:auto;background:#fff;border:1px solid #e3e9f0;border-radius:10px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eef2f6}th{background:#f8fafc;font-size:13px;color:#5b6b7c}
+tr.m{cursor:pointer}tr.m:hover{background:#f8fbff}.d td{background:#fafcff}.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 20px;margin-bottom:10px}.kv span{color:#5b6b7c}textarea{width:100%;min-height:60px}
+.New{font-weight:700;color:#13a77a}
+</style></head><body><div class="w">
+<div class="top"><h1>Leads</h1><div><button id="rf">Refresh</button> <a class="b" href="/api/admin/export.csv">Export CSV</a></div></div>
+<div class="stats"><div><b id="s1">0</b>Total leads</div><div><b id="s2">0</b>New</div><div><b id="s3">0</b>Today</div></div>
+<div class="bar"><input id="q" placeholder="Search name, mobile, city…"><select id="ft"><option value="">All loan types</option></select><select id="fs"><option value="">All statuses</option></select></div>
+<div class="t"><table><thead><tr><th>Date</th><th>Name</th><th>Mobile</th><th>Loan type</th><th>Amount (₹)</th><th>Status</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+<script>
+const ST=['New','Contacted','Docs Collected','Submitted to Bank','Approved','Disbursed','Rejected','Closed'],$=id=>document.getElementById(id);let leads=[];
+const h=(t,a={},...c)=>{const e=document.createElement(t);for(const[k,v]of Object.entries(a))k.startsWith('on')?e[k]=v:e.setAttribute(k,v);e.append(...c);return e};
+const api=(u,m,b)=>fetch(u,{method:m,headers:{'Content-Type':'application/json'},body:b&&JSON.stringify(b)});
+const dt=s=>new Date(s.replace(' ','T')+'Z');
+ST.forEach(s=>$('fs').add(new Option(s,s)));
+async function load(){leads=await(await api('/api/admin/leads')).json();[...new Set(leads.map(l=>l.loan_type))].forEach(t=>{if(![...$('ft').options].some(o=>o.value===t))$('ft').add(new Option(t,t))});draw()}
+function draw(){const q=$('q').value.toLowerCase(),t=$('ft').value,s=$('fs').value,td=new Date().toDateString();
+ $('s1').textContent=leads.length;$('s2').textContent=leads.filter(l=>l.status==='New').length;$('s3').textContent=leads.filter(l=>dt(l.created_at).toDateString()===td).length;
+ const tb=$('tb');tb.replaceChildren();
+ leads.filter(l=>(!t||l.loan_type===t)&&(!s||l.status===s)&&(!q||[l.name,l.mobile,l.city,l.email].join(' ').toLowerCase().includes(q))).forEach(l=>{
+  const sel=h('select',{onclick:e=>e.stopPropagation(),onchange:async e=>{l.status=e.target.value;await api('/api/admin/leads/'+l.id,'PATCH',{status:l.status});draw()}});
+  ST.forEach(x=>sel.add(new Option(x,x)));sel.value=l.status;
+  const det=h('tr',{class:'d',hidden:''},h('td',{colspan:6},
+   h('div',{class:'kv'},...[['Email',l.email],['City',l.city],...Object.entries(l.details)].map(([k,v])=>h('div',{},h('span',{},k+': '),v||'–'))),
+   (()=>{const n=h('textarea',{placeholder:'Internal notes…'});n.value=l.notes||'';return h('div',{},n,h('button',{onclick:async e=>{await api('/api/admin/leads/'+l.id,'PATCH',{notes:n.value});e.target.textContent='Saved ✓'}},'Save notes'))})()));
+  tb.append(h('tr',{class:'m',onclick:()=>det.hidden=!det.hidden},h('td',{},dt(l.created_at).toLocaleString()),h('td',{},l.name),h('td',{},h('a',{href:'tel:'+l.mobile,onclick:e=>e.stopPropagation()},l.mobile)),h('td',{},l.loan_type),h('td',{},l.amount),h('td',{},sel)),det)})}
+['q','ft','fs'].forEach(i=>$(i).oninput=draw);$('rf').onclick=load;load();setInterval(load,60000);
+</script></body></html>

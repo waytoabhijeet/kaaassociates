@@ -1,0 +1,1245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KAA Associates – Personal, Business, Home & More Loans</title>
+  <meta name="description" content="KAA Associates helps individuals and businesses find the right loan: personal, business, home, LAP, car, education, MSME, Mudra and project loans.">
+  <style>
+    :root {
+      --navy: #0f172a;
+      --navy-2: #152d46;
+      --teal: #17a89a;
+      --teal-2: #59d5c1;
+      --sky: #edf8ff;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --muted: #5b6d82;
+      --line: #dfe8f3;
+      --text: #17212d;
+      --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+      --radius: 26px;
+      --radius-sm: 16px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font: 16px/1.6 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fafc 0%, #f3f7fb 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select { font: inherit; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.9fr);
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 26px;
+      width: 100%;
+    }
+
+    .section-head > div { min-width: 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(23, 168, 154, 0.10);
+      color: var(--teal);
+      border: 1px solid rgba(23, 168, 154, 0.22);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h2 {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 520px;
+      margin: 0;
+      justify-self: end;
+      align-self: end;
+      text-align: left;
+      padding-bottom: 8px;
+    }
+
+    .btn,
+    .btn-secondary,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--teal), #0ea4b7);
+      color: #fff;
+      padding: 14px 20px;
+      box-shadow: 0 12px 26px rgba(23, 168, 154, 0.24);
+    }
+
+    .btn:hover,
+    .btn-secondary:hover,
+    .chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.55);
+      color: var(--navy);
+      border-color: rgba(17, 44, 75, 0.08);
+      padding: 14px 18px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      background: var(--card);
+      border-color: var(--line);
+      color: var(--navy);
+      font-size: 0.92rem;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 44, 75, 0.05);
+    }
+
+    .topbar .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.06rem;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), #0ea4b7);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(23, 168, 154, 0.25);
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      padding: 40px 0 18px;
+      background: linear-gradient(180deg, #edf5f5 0%, rgba(237,245,245,0.7) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 20px 0 10px;
+    }
+
+    .hero-info,
+    .hero-form-panel {
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 32px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-info {
+      padding: 44px 36px 34px;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-info .eyebrow {
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+
+    .hero-info h1 {
+      font-size: clamp(2.6rem, 4vw, 4.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.08em;
+      margin: 0 0 18px;
+      color: var(--navy);
+    }
+
+    .hero-info p {
+      font-size: 1.14rem;
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 560px;
+    }
+
+    .hero-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1.04rem;
+    }
+
+    .hero-checklist li::before {
+      content: "✓";
+      width: 26px;
+      height: 26px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(23, 168, 154, 0.12);
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .help-box {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(17, 44, 75, 0.08);
+    }
+
+    .help-box .eyebrow {
+      background: transparent;
+      color: var(--navy);
+      border-color: rgba(17, 44, 75, 0.12);
+      padding: 8px 12px;
+      margin-bottom: 12px;
+    }
+
+    .help-box h3 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2vw, 2.1rem);
+      letter-spacing: -0.06em;
+      color: var(--navy);
+    }
+
+    .hero-form-panel {
+      padding: 30px 28px 26px;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .hero-form-panel h2 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      letter-spacing: -0.06em;
+      color: var(--navy);
+    }
+
+    .loan-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(23, 168, 154, 0.10);
+      border: 1px solid rgba(23, 168, 154, 0.20);
+      color: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .hero-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-form .field,
+    .application-form .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .hero-form .field label,
+    .application-form .field label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .hero-form .field input,
+    .hero-form .field select,
+    .application-form .field input,
+    .application-form .field select,
+    .application-form select,
+    #lt {
+      width: 100%;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 14px;
+      color: var(--text);
+      font: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-form .field input:focus,
+    .hero-form .field select:focus,
+    .application-form .field input:focus,
+    .application-form .field select:focus,
+    .application-form select:focus {
+      outline: none;
+      border-color: rgba(23, 168, 154, 0.5);
+      box-shadow: 0 0 0 4px rgba(23, 168, 154, 0.10);
+    }
+
+    .hero-form .row,
+    .application-form .row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-form .consent,
+    .application-form .consent {
+      margin: 4px 0 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .hero-form .consent input,
+    .application-form .consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      accent-color: var(--teal);
+    }
+
+    .hero-form .btn,
+    .application-form .btn,
+    .submit-row .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .hero-form .error,
+    .application-form .error,
+    .error {
+      min-height: 18px;
+      margin: 0;
+      color: #d75f66;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .trust-strip {
+      padding: 18px 0 8px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 18px;
+      padding: 18px 14px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .trust-item strong {
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .services,
+    .process,
+    .why-us,
+    .faq,
+    .apply {
+      padding: 32px 0 10px;
+    }
+
+    .loan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .loan-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      padding: 22px 20px 18px;
+      border: 1px solid rgba(17, 44, 75, 0.07);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,247,250,0.96));
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      color: var(--navy);
+    }
+
+    .loan-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(23, 168, 154, 0.25);
+      box-shadow: 0 24px 46px rgba(15, 23, 42, 0.10);
+    }
+
+    .loan-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(23, 168, 154, 0.10);
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .loan-card h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 2vw, 2.1rem);
+      line-height: 1.14;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .loan-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 1.02rem;
+    }
+
+    .loan-link {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .process-grid,
+    .feature-grid,
+    .faq-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .step-card,
+    .feature-card {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 22px;
+      padding: 26px 22px 22px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.04);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(23, 168, 154, 0.11);
+      color: var(--teal);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .step-card h3,
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .step-card p,
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(99, 164, 255, 0.08);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: start;
+    }
+
+    .faq-list {
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.04);
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid rgba(17, 44, 75, 0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-content {
+      display: none;
+      padding: 0 22px 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-content {
+      display: block;
+    }
+
+    .faq-side {
+      background: linear-gradient(180deg, #f4fbff 0%, #edf8f5 100%);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 24px;
+      padding: 26px 22px 22px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.04);
+    }
+
+    .faq-side h3 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: clamp(1.9rem, 2vw, 2.4rem);
+      letter-spacing: -0.06em;
+    }
+
+    .stats-list {
+      margin: 0 0 22px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .apply-shell {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .info-panel,
+    .application-form {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(17, 44, 75, 0.06);
+      border-radius: 28px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
+      padding: 28px 24px;
+    }
+
+    .info-panel .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .info-panel h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 2vw, 2.5rem);
+      letter-spacing: -0.06em;
+      color: var(--navy);
+    }
+
+    .info-panel p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      display: grid;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(23, 168, 154, 0.10);
+      color: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .contact-card {
+      background: rgba(14, 164, 183, 0.05);
+      border: 1px solid rgba(14, 164, 183, 0.08);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-card small {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+
+    .contact-card strong {
+      color: var(--navy);
+      font-size: 1.08rem;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .contact-meta .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .contact-meta .label {
+      color: var(--navy);
+      font-weight: 700;
+      min-width: 54px;
+    }
+
+    .contact-meta a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-meta a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 22px 0 28px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(17, 44, 75, 0.06);
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .footer-contact a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .apply-shell,
+      .faq-grid,
+      .feature-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .loan-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-info,
+      .hero-form-panel {
+        min-height: unset;
+      }
+
+      .trust-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 18px;
+      }
+
+      .hero-info,
+      .hero-form-panel,
+      .info-panel,
+      .application-form {
+        padding: 22px 18px 20px;
+      }
+
+      .hero-form .row,
+      .application-form .row,
+      .trust-row,
+      .loan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .panel-header,
+      .form-header,
+      .footer-shell {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-info h1 {
+        font-size: clamp(2.3rem, 14vw, 3.2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="#top" aria-label="KAA Associates home">
+        <span class="brand-mark">K</span>
+        <span>KAA Associates</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-info">
+          <span class="eyebrow">Free enquiry</span>
+          <h1>Start your loan journey today.</h1>
+          <p>Tell us what you need and we’ll connect with the right lending option for your profile.</p>
+
+          <ul class="hero-checklist">
+            <li>Fast response from our team</li>
+            <li>Suitable lender matching</li>
+            <li>Clear assistance on documents</li>
+            <li>Dedicated support while you apply</li>
+          </ul>
+
+          <div class="help-box">
+            <span class="eyebrow">Need help sooner?</span>
+            <h3>Call or write to us</h3>
+          </div>
+        </div>
+
+        <div class="hero-form-panel">
+          <div class="panel-header">
+            <h2>Enquire now</h2>
+            <span class="loan-badge" id="selectedLoanTag">Personal Loan</span>
+          </div>
+
+          <form id="heroForm" class="hero-form" novalidate>
+            <div class="field">
+              <label for="heroLoanType">Loan type</label>
+              <select id="heroLoanType" name="loan_type" required></select>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="heroName">Full name</label>
+                <input id="heroName" name="name" required minlength="2" autocomplete="name" placeholder="Your full name">
+              </div>
+              <div class="field">
+                <label for="heroPhone">Mobile number</label>
+                <input id="heroPhone" name="mobile" required inputmode="numeric" pattern="[0-9+\s-]{10,16}" autocomplete="tel" placeholder="10-digit mobile number">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="heroEmail">Email (optional)</label>
+                <input id="heroEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              </div>
+              <div class="field">
+                <label for="heroCity">City</label>
+                <input id="heroCity" name="city" autocomplete="address-level2" placeholder="Your city">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="heroAmount">Loan amount required (₹)</label>
+              <input id="heroAmount" name="amount" type="number" min="1" required placeholder="e.g. 500000">
+            </div>
+
+            <input class="hidden" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>I agree to be contacted by KAA Associates and consent to my personal data being processed and my credit history being checked for the purpose of this loan enquiry.</span>
+            </label>
+
+            <button type="submit" class="btn">Submit enquiry</button>
+            <div id="heroMsg" class="error" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="shell trust-row" aria-label="Trust metrics">
+        <div class="trust-item">
+          <strong>₹2.5Cr+</strong>
+          <span>Loan value guided</span>
+        </div>
+        <div class="trust-item">
+          <strong>97%</strong>
+          <span>Client satisfaction</span>
+        </div>
+        <div class="trust-item">
+          <strong>15+</strong>
+          <span>Years of guidance</span>
+        </div>
+        <div class="trust-item">
+          <strong>100%</strong>
+          <span>Transparent process</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="services" class="services">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Popular loan solutions</span>
+            <h2>Find the right loan for your goals</h2>
+          </div>
+          <p class="sub">Choose a product below to begin your enquiry with a short, guided form.</p>
+        </div>
+        <div class="loan-grid" id="grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="how" class="process">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Simple process</span>
+            <h2>How it works</h2>
+          </div>
+          <p class="sub">We keep the process easy, transparent, and tailored to your situation.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Tell us your need</h3>
+            <p>Share a few details about the loan amount, purpose, and your profile in under two minutes.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>We shortlist options</h3>
+            <p>Our team understands your eligibility and matches you to suitable banks or NBFCs.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Documentation &amp; follow-up</h3>
+            <p>We guide you through the required paperwork and support you from enquiry to sanction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="why-us">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Why choose us</span>
+            <h2>Decisions built around your goals</h2>
+          </div>
+          <p class="sub">We combine personal guidance with lender access so you can move confidently.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Faster decisions</h3>
+            <p>Quick screening and responsiveness to help you avoid delays.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Tailored advice</h3>
+            <p>Loan plans based on your profile, income, and future financial needs.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧾</div>
+            <h3>Clear process</h3>
+            <p>We explain the steps, terms, and documentation in simple language.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Trust-first support</h3>
+            <p>Your information is handled responsibly and only for the purpose of enquiry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions people ask before applying</h2>
+          </div>
+          <p class="sub">Everything you need to know about how we help with loan enquiries.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button class="faq-question" type="button" aria-expanded="true">
+                <span>Is there any fee to enquire?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-content">No. Enquiry and consultation are typically free at the initial stage. Final lender charges, if any, are disclosed by the respective institution.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Do I need to submit documents upfront?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-content">Not at the first stage. We only need a few basic details to understand your loan requirement and start shortlisting suitable options.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Which loan types do you support?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-content">We assist with personal loans, business loans, home loans, LAP, vehicle finance, education loans, MSME products, project loans, and more.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Will my information be shared without consent?</span>
+                <span>+</span>
+              </button>
+              <div class="faq-content">Your information is processed strictly for the purpose of this loan enquiry and follows the consent provided on the form.</div>
+            </div>
+          </div>
+
+          <aside class="faq-side">
+            <h3 style="margin:0 0 18px; color:var(--navy); font-size:2rem; letter-spacing:-0.06em;">Ready when you are.</h3>
+            <ul class="stats-list">
+              <li>Flexible solutions across personal and business requirements</li>
+              <li>Clear guidance on documents and lender expectations</li>
+              <li>Support through the application and follow-up stages</li>
+            </ul>
+            <a class="btn" href="#heroForm">Apply now</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell footer-shell">
+      <div>
+        <span class="footer-brand">KAA Associates</span> – Direct Selling Agent. Loan approval, rates and terms are at the discretion of the lender.
+      </div>
+      <div class="footer-contact" id="ct-bottom"></div>
+    </div>
+  </footer>
+
+  <script>
+    const CONTACT = { phone: '9045688993 | 9557866663', email: 'Abhishekc@crediflex.in' };
+    const contactLine = [
+      'Abhishek Chitransh | Associate Director',
+      'CrediFlex Consultants (KAA Associates)',
+      'Call: ' + CONTACT.phone,
+      'Email: ' + CONTACT.email
+    ].join(' | ');
+
+    const ct = document.getElementById('ct');
+    const ctBottom = document.getElementById('ct-bottom');
+    if (ct) ct.textContent = contactLine;
+    if (ctBottom) {
+      ctBottom.innerHTML = `
+        <a href="tel:9045688993">9045688993</a>
+        <span>|</span>
+        <a href="tel:9557866663">9557866663</a>
+        <span>|</span>
+        <a href="mailto:Abhishekc@crediflex.in">Abhishekc@crediflex.in</a>
+      `;
+    }
+
+    const f = (l, t = 'text', o = []) => ({ l, t, o });
+    const emp = f('Employment type', 'select', ['Salaried', 'Self-employed', 'Business owner']);
+    const inc = f('Monthly income (₹)', 'number');
+    const yn = ['Yes', 'No'];
+    const biz = f('Business name');
+    const to = f('Annual turnover (₹)', 'number');
+
+    const L = [
+      { k: 'Personal Loan', d: 'Quick funds for personal needs', x: [emp, inc, f('Purpose of loan'), f('Existing EMIs per month (₹)', 'number')] },
+      { k: 'Business Loan', d: 'Fund and grow your business', x: [biz, f('Legal structure', 'select', ['Proprietorship', 'Partnership', 'LLP', 'Pvt Ltd']), to, f('Years in operation', 'number'), f('Purpose of loan')] },
+      { k: 'Home Loan', d: 'Buy or construct your dream home', x: [emp, inc, f('Property cost (₹)', 'number'), f('Property location'), f('Property status', 'select', ['Ready to move', 'Under construction', 'Resale']), f('Down payment available (₹)', 'number')] },
+      { k: 'Loan Against Property', d: 'Unlock the value of your property', x: [f('Property type', 'select', ['Residential', 'Commercial', 'Industrial', 'Plot']), f('Property market value (₹)', 'number'), f('Existing loan on property?', 'select', yn), emp, inc] },
+      { k: 'New Car Loan', d: 'Drive home your new car', x: [f('Car make & model'), f('On-road price (₹)', 'number'), f('Down payment (₹)', 'number'), emp, inc] },
+      { k: 'Used Car Loan', d: 'Finance a pre-owned car', x: [f('Car make & model'), f('Manufacturing year', 'number'), f('Expected price (₹)', 'number'), f('Kilometres driven', 'number'), emp, inc] },
+      { k: 'Education Loan', d: 'Study in India or abroad', x: [f('Student name'), f('Course & institution'), f('Study in', 'select', ['India', 'Overseas']), f('Co-applicant monthly income (₹)', 'number')] },
+      { k: 'MSME Loan', d: 'Credit for small & medium enterprises', x: [biz, f('Udyam registered?', 'select', yn), to, f('Years in business', 'number'), f('Purpose of loan')] },
+      { k: 'Working Capital Loan', d: 'Manage day-to-day business cash flow', x: [biz, to, f('Purpose', 'select', ['Inventory', 'Supplier payments', 'Payroll', 'Receivables gap', 'Seasonal needs']), f('Existing CC/OD limit (₹)', 'number')] },
+      { k: 'Mudra Loan', d: 'Government-backed loans for small businesses', x: [f('Business name & activity'), f('Category', 'select', ['Shishu', 'Kishor', 'Tarun', 'Not sure']), f('Monthly sales (₹)', 'number'), f('Purpose of loan')] },
+      { k: 'Overdraft (OD) Limit', d: 'Flexible limit against your business or security', x: [biz, to, f('Security offered', 'select', ['Property', 'Fixed deposit', 'Stock / receivables', 'None']), f('Purpose')] },
+      { k: 'Project Loan', d: 'Term finance for new or expanding projects', x: [f('Company name'), f('Project name & sector'), f('Total project cost (₹)', 'number'), f('Promoter contribution (₹)', 'number'), f('Project stage', 'select', ['Planned', 'Under construction', 'Operational'])] },
+      { k: 'Builder Project Loan', d: 'Construction finance for real-estate developers', x: [f('Builder / company name'), f('Project name & location'), f('RERA registration no.'), f('Total project cost (₹)', 'number'), f('Construction stage', 'select', ['Planning', 'Under construction', 'Near completion'])] }
+    ];
+
+    const $ = (id) => document.getElementById(id);
+    const heroForm = document.getElementById('heroForm');
+    const heroLoanType = document.getElementById('heroLoanType');
+    const heroMsg = document.getElementById('heroMsg');
+    const selectedLoanTag = document.getElementById('selectedLoanTag');
+
+    const icons = ['P', 'B', 'H', 'L', 'C', 'E', 'M', 'W', 'D', 'R', 'O', 'P'];
+
+    L.forEach((loan, index) => {
+      const card = document.createElement('a');
+      card.href = '#heroForm';
+      card.className = 'loan-card';
+      card.innerHTML = `
+        <div class="loan-icon">${icons[index] || 'K'}</div>
+        <h3>${loan.k}</h3>
+        <p>${loan.d}</p>
+        <span class="loan-link">Select loan →</span>
+      `;
+      card.addEventListener('click', (event) => {
+        event.preventDefault();
+        heroLoanType.value = loan.k;
+        selectedLoanTag.textContent = loan.k;
+        const formBox = document.getElementById('heroForm');
+        if (formBox) {
+          formBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      $('grid').appendChild(card);
+    });
+
+    const allLoanTypes = L.map((loan) => loan.k);
+    allLoanTypes.forEach((loanName) => {
+      const option = new Option(loanName, loanName);
+      heroLoanType.add(option);
+    });
+
+    heroLoanType.value = L[0].k;
+    selectedLoanTag.textContent = L[0].k;
+
+    heroLoanType.onchange = () => {
+      selectedLoanTag.textContent = heroLoanType.value;
+    };
+
+    heroForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const fd = new FormData(heroForm);
+      const payload = { details: {} };
+
+      for (const [key, value] of fd) {
+        if (key === 'website') continue;
+        if (key.startsWith('x:')) {
+          if (value) payload.details[key.slice(2)] = value;
+        } else {
+          payload[key] = value;
+        }
+      }
+
+      payload.consent = !!fd.get('consent');
+      payload.loan_type = heroLoanType.value;
+      heroMsg.textContent = '';
+
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const json = await response.json();
+
+        if (!response.ok) {
+          throw new Error(json.error || 'Something went wrong. Please try again.');
+        }
+
+        heroForm.reset();
+        heroLoanType.value = L[0].k;
+        selectedLoanTag.textContent = L[0].k;
+        heroMsg.textContent = 'Thank you! Your enquiry has been received. Our team will contact you shortly.';
+        heroMsg.style.color = '#1a7f5a';
+      } catch (err) {
+        heroMsg.textContent = err.message || 'Something went wrong. Please try again.';
+        heroMsg.style.color = '#d75f66';
+      }
+    });
+
+    document.querySelectorAll('.faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item').forEach((faq) => {
+          faq.classList.remove('open');
+          faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
